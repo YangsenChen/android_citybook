@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     // get the root reference of different variables stored in the Google firebase
     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference userProfileRef = rootRef.child("userProfile");
+    ThemeSharedPref sharedPref;
 
     public static List<UserProfile> userProfileList= new ArrayList<>(); // this variable stores the info of all registered users as an ArrayList
     public static String username; // this variable stores the username of the current user who has logged in
@@ -32,6 +34,15 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // code that is run during the onCreate phase
+        sharedPref = new ThemeSharedPref(this);
+        Log.e("themeeee", "onCreate:"+String.valueOf(sharedPref.getThemeNumber()) );
+        if (sharedPref.getThemeNumber()==1)
+            setTheme(R.style.Purple);
+        if (sharedPref.getThemeNumber()==2)
+            setTheme(R.style.Teal);
+        if (sharedPref.getThemeNumber()==3)
+            setTheme(R.style.Red);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 

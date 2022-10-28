@@ -3,7 +3,9 @@ package edu.uiuc.try02;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
@@ -17,11 +19,12 @@ import java.util.List;
 import android.widget.RadioButton;
 
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity{
 
     private String username;
     private String password;
     private int themeNum = -100; // set a default value to determine if a preferred theme has been selected
+    ThemeSharedPref sharedPref;
 
     // an auxiliary method for checking if the integer represented by a string is an integer
     public boolean isInteger(String str) {
@@ -36,8 +39,17 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPref = new ThemeSharedPref(this);
+        if (sharedPref.getThemeNumber()==1)
+            setTheme(R.style.Purple);
+        if (sharedPref.getThemeNumber()==2)
+            setTheme(R.style.Teal);
+        if (sharedPref.getThemeNumber()==3)
+            setTheme(R.style.Red);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
     }
 
 
@@ -70,7 +82,7 @@ public class SignUpActivity extends AppCompatActivity {
                     "Signing up failed, all fields are mandatory",
                     Toast.LENGTH_SHORT).show();
             return false;
-        } else if (themeNum == -100) {
+        } else if (sharedPref.getThemeNumber()==-1) {
             // check that if the user has selected a preferred theme
             Toast.makeText(SignUpActivity.this,
                     "Signing up failed, please select a preferred theme and then try again",
@@ -153,11 +165,18 @@ public class SignUpActivity extends AppCompatActivity {
         RadioButton radioButton_teal = (RadioButton) findViewById(R.id.theme_selection_teal);
         RadioButton radioButton_red = (RadioButton) findViewById(R.id.theme_selection_red);
         if(radioButton_purple.isChecked()){
-            themeNum = 1;
+
+            sharedPref.setThemeState(1);
+            setTheme(R.style.Purple);
+
         }else if(radioButton_teal.isChecked()){
-            themeNum = 2;
+            sharedPref.setThemeState(2);
+            setTheme(R.style.Teal);
+            Log.e("TAG", "btn_click_sign_up: tealllllllllllll" );
         }else if(radioButton_red.isChecked()){
-            themeNum = 3;
+            sharedPref.setThemeState(3);
+            setTheme(R.style.Red);
+
         }
 
         // if add info successfully, jump to LoginActivity
@@ -174,5 +193,16 @@ public class SignUpActivity extends AppCompatActivity {
 //            Toast.makeText(SignUpActivity.this,"Signing up failed, please input valid information",
 //                    Toast.LENGTH_SHORT).show();
 //        }
+
     }
+
+//    @Override
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.buttonChampaign:
+//
+//            case R.id.buttonChicago:
+//
+//        }
+//    }
 }

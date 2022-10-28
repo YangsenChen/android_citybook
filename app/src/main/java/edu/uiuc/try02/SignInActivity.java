@@ -3,6 +3,7 @@ package edu.uiuc.try02;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,9 +12,20 @@ import android.content.Intent;
 import java.util.Iterator;
 
 public class SignInActivity extends AppCompatActivity {
+    ThemeSharedPref sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPref = new ThemeSharedPref(this);
+        Log.e("themeeee", "onCreate:"+String.valueOf(sharedPref.getThemeNumber()) );
+        if (sharedPref.getThemeNumber()==1)
+            setTheme(R.style.Purple);
+        if (sharedPref.getThemeNumber()==2)
+            setTheme(R.style.Teal);
+        if (sharedPref.getThemeNumber()==3)
+            setTheme(R.style.Red);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
     }

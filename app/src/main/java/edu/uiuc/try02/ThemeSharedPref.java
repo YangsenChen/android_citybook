@@ -12,15 +12,15 @@ public class ThemeSharedPref {
     }
 
     //To save the night mode state as true or false.
-    public void setNightModeState(Boolean state) {
-        Log.w("ddd","ffufu");
+    public void setThemeState(int themeNum) {
+        Log.e("themeNum",String.valueOf(themeNum));
         SharedPreferences.Editor editor = mySharedPref.edit();
-        editor.putBoolean("NightMode",state);
+        editor.putInt("ThemeNum",themeNum);
         editor.apply();
     }
 
     //To load the night or day mode.
-    public Boolean isNightMode (){
-        return  mySharedPref.getBoolean("NightMode",false);
+    public int getThemeNumber (){
+        return  mySharedPref.getInt("ThemeNum", -1);
     }
 }
