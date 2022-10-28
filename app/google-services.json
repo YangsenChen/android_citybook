@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "712881333243",
+    "firebase_url": "https://group27app-2dc5a-default-rtdb.firebaseio.com",
+    "project_id": "group27app-2dc5a",
+    "storage_bucket": "group27app-2dc5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712881333243:android:ceb6e7771f8fbc2c9b215e",
+        "android_client_info": {
+          "package_name": "edu.uiuc.cs427app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712881333243-qnlmpamss8b2ovhuf4v3d521aqo18i55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWUvt4J4ZdugYnH9Qsbd7msFJDp727OiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712881333243-qnlmpamss8b2ovhuf4v3d521aqo18i55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712881333243:android:22fff5eebfb65bb39b215e",
+        "android_client_info": {
+          "package_name": "edu.uiuc.try02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712881333243-qnlmpamss8b2ovhuf4v3d521aqo18i55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWUvt4J4ZdugYnH9Qsbd7msFJDp727OiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712881333243-qnlmpamss8b2ovhuf4v3d521aqo18i55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
