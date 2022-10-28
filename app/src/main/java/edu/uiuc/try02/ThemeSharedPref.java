@@ -1,7 +1,8 @@
-package edu.uiuc.yangsen;
+package edu.uiuc.try02;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 public class ThemeSharedPref {
 
@@ -12,6 +13,7 @@ public class ThemeSharedPref {
 
     //To save the night mode state as true or false.
     public void setNightModeState(Boolean state) {
+        Log.w("ddd","ffufu");
         SharedPreferences.Editor editor = mySharedPref.edit();
         editor.putBoolean("NightMode",state);
         editor.apply();

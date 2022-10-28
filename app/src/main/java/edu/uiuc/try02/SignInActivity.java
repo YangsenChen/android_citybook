@@ -1,4 +1,4 @@
-package edu.uiuc.yangsen;
+package edu.uiuc.try02;
 
 import androidx.appcompat.app.AppCompatActivity;
 
